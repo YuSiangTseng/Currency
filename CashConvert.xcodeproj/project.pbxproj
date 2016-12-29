@@ -12,9 +12,11 @@
 		3D046E151E1567D80085A98D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D046E131E1567D80085A98D /* Main.storyboard */; };
 		3D046E171E1567D80085A98D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D046E161E1567D80085A98D /* Assets.xcassets */; };
 		3D046E1A1E1567D80085A98D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D046E181E1567D80085A98D /* LaunchScreen.storyboard */; };
+		6CFB69DC2136DCC9B7195596 /* Pods_CashConvert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2E9092968864051B17D155 /* Pods_CashConvert.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0948769FDC8BE906BDEC20C0 /* Pods-CashConvert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CashConvert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CashConvert/Pods-CashConvert.debug.xcconfig"; sourceTree = "<group>"; };
 		3D046E0C1E1567D80085A98D /* CashConvert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashConvert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D046E0F1E1567D80085A98D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D046E111E1567D80085A98D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		3D046E161E1567D80085A98D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D046E191E1567D80085A98D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D046E1B1E1567D80085A98D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA2E9092968864051B17D155 /* Pods_CashConvert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CashConvert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1687E30489F6C7F92D83070 /* Pods-CashConvert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CashConvert.release.xcconfig"; path = "Pods/Target Support Files/Pods-CashConvert/Pods-CashConvert.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CFB69DC2136DCC9B7195596 /* Pods_CashConvert.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				3D046E0E1E1567D80085A98D /* CashConvert */,
 				3D046E0D1E1567D80085A98D /* Products */,
+				44DFE6712E954EE7566804D5 /* Pods */,
+				AFE10D1653A692DCC2AC1776 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = CashConvert;
 			sourceTree = "<group>";
 		};
+		44DFE6712E954EE7566804D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0948769FDC8BE906BDEC20C0 /* Pods-CashConvert.debug.xcconfig */,
+				B1687E30489F6C7F92D83070 /* Pods-CashConvert.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AFE10D1653A692DCC2AC1776 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA2E9092968864051B17D155 /* Pods_CashConvert.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D046E1E1E1567D80085A98D /* Build configuration list for PBXNativeTarget "CashConvert" */;
 			buildPhases = (
+				88704B9CAC146AF4780D013D /* [CP] Check Pods Manifest.lock */,
 				3D046E081E1567D80085A98D /* Sources */,
 				3D046E091E1567D80085A98D /* Frameworks */,
 				3D046E0A1E1567D80085A98D /* Resources */,
+				7C4BC58CBE7EB942818E701B /* [CP] Embed Pods Frameworks */,
+				8DE86EC6C9108A7C062127F9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7C4BC58CBE7EB942818E701B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CashConvert/Pods-CashConvert-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		88704B9CAC146AF4780D013D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8DE86EC6C9108A7C062127F9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CashConvert/Pods-CashConvert-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3D046E081E1567D80085A98D /* Sources */ = {
@@ -247,6 +322,7 @@
 		};
 		3D046E1F1E1567D80085A98D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0948769FDC8BE906BDEC20C0 /* Pods-CashConvert.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CashConvert/Info.plist;
@@ -258,6 +334,7 @@
 		};
 		3D046E201E1567D80085A98D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1687E30489F6C7F92D83070 /* Pods-CashConvert.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CashConvert/Info.plist;

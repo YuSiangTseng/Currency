@@ -1,0 +1,6 @@
+framework module Pods_CashConvert {
+  umbrella header "Pods-CashConvert-umbrella.h"
+
+  export *
+  module * { export * }
+}
