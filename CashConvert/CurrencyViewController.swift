@@ -8,15 +8,29 @@
 
 import UIKit
 
-class CurrencyViewController: UIViewController {
+class CurrencyViewController: UITableViewController {
 
     var currencyStore: CurrencyStore? {
         didSet {
-            setUpTableView()
+            setUpTableView(currencyStore!)
         }
     }
+    var currencyDataSource: CurrencyTableViewSource?
     
-    func setUpTableView() {
-        print(currencyStore?.displayCurrencies)
+    //MARK:- view life cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        refreshControl?.beginRefreshing()
+        tableView.rowHeight = 75
     }
+    
+    func setUpTableView(currencyStore: CurrencyStore) {
+        refreshControl?.endRefreshing()
+        currencyDataSource = CurrencyTableViewSource(currencyStore: currencyStore)
+        tableView.dataSource = currencyDataSource
+        tableView.reloadData()
+    }
+    
 }
