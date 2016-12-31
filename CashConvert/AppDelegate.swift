@@ -23,7 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             (currencyResult) -> Void in
             switch currencyResult {
             case let .Success(currency, currencies):
-                print(currencies.count)
+                
+                let navigationController = self.window?.rootViewController as? UINavigationController
+                let currencyViewController = navigationController?.topViewController as? CurrencyViewController
+                currencyViewController?.currencyStore = CurrencyStore(baseCurrency: currency, allCurrencies: currencies)
+
             case let .Failure(error):
                 print("\(error)")
             }
