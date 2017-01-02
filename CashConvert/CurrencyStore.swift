@@ -40,7 +40,7 @@ class CurrencyStore {
     }
     
     func addCurrencyToDisplayCurrencies(currency: Currency) {
-        if !displayCurrencies.contains({ $0.name == currency.name }) {
+        if !displayCurrencies.contains({ $0 == currency}) {
             displayCurrencies.append(currency)
         }
     }
