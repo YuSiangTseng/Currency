@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CurrencyTableViewSource: NSObject, UITableViewDataSource {
+class CurrencyTableViewDataSource: NSObject, UITableViewDataSource {
     
     let currencyStore: CurrencyStore
     

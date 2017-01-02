@@ -72,6 +72,7 @@
                                     <outlet property="flagImageView" destination="6N1-xe-krM" id="xSH-0f-chN"/>
                                     <outlet property="inputTextField" destination="B1E-qZ-vIo" id="1ud-AO-uFj"/>
                                     <outlet property="symbolImageView" destination="edY-xc-VgD" id="JXP-Ay-Jtp"/>
+                                    <segue destination="3dm-Rz-2T7" kind="show" identifier="showWebPage" id="Nch-Jk-fdF"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -80,7 +81,13 @@
                             <outlet property="delegate" destination="cau-eB-5mE" id="g4z-T5-izq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="1o0-C8-IpQ"/>
+                    <navigationItem key="navigationItem" id="1o0-C8-IpQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="eQi-fL-Xsk">
+                            <connections>
+                                <segue destination="RcJ-pB-xUf" kind="show" identifier="addCurrency" id="oVx-bF-Zvc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="gW5-Pk-LjZ">
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
@@ -107,6 +114,96 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8s-XL-7cb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="944" y="90"/>
+        </scene>
+        <!--Add Currency View Controller-->
+        <scene sceneID="48f-5k-BKR">
+            <objects>
+                <tableViewController id="RcJ-pB-xUf" customClass="AddCurrencyViewController" customModule="CashConvert" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CQ6-dq-aox">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddCurrencyCell" rowHeight="130" id="3Fm-Y0-pyZ" customClass="AddCurrencyCell" customModule="CashConvert" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="130"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Fm-Y0-pyZ" id="A5o-gF-gne">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Kf-df-oB3">
+                                            <rect key="frame" x="128" y="54" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fIa-nA-Sj9">
+                                            <rect key="frame" x="40" y="25" width="80" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="F3c-oR-TMS"/>
+                                                <constraint firstAttribute="height" constant="80" id="obb-86-j4m"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="fIa-nA-Sj9" firstAttribute="leading" secondItem="A5o-gF-gne" secondAttribute="leadingMargin" constant="32" id="4sj-V0-w1i"/>
+                                        <constraint firstItem="0Kf-df-oB3" firstAttribute="centerY" secondItem="A5o-gF-gne" secondAttribute="centerY" id="mLb-py-s1c"/>
+                                        <constraint firstItem="fIa-nA-Sj9" firstAttribute="centerY" secondItem="A5o-gF-gne" secondAttribute="centerY" id="pnE-ib-CtD"/>
+                                        <constraint firstItem="0Kf-df-oB3" firstAttribute="leading" secondItem="fIa-nA-Sj9" secondAttribute="trailing" constant="8" id="xZ0-LH-oDL"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="currencyNameLabel" destination="0Kf-df-oB3" id="0H3-m9-Dmb"/>
+                                    <outlet property="flagImageView" destination="fIa-nA-Sj9" id="ZUr-3w-luJ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RcJ-pB-xUf" id="Vm9-aY-xae"/>
+                            <outlet property="delegate" destination="RcJ-pB-xUf" id="N08-Bj-g9W"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H5y-ig-wXb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1873.5" y="-306.5"/>
+        </scene>
+        <!--Currency News View Controller-->
+        <scene sceneID="beI-Pj-IJt">
+            <objects>
+                <viewController id="3dm-Rz-2T7" customClass="CurrencyNewsViewController" customModule="CashConvert" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u2c-ox-bXV"/>
+                        <viewControllerLayoutGuide type="bottom" id="YlQ-h1-aon"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AUE-Jd-GMh">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sKo-ru-6w8">
+                                <rect key="frame" x="16" y="0.0" width="343" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sKo-ru-6w8" firstAttribute="leading" secondItem="AUE-Jd-GMh" secondAttribute="leadingMargin" id="Aas-iu-Wsk"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="sKo-ru-6w8" secondAttribute="bottom" id="Ekr-jH-ppd"/>
+                            <constraint firstItem="sKo-ru-6w8" firstAttribute="top" secondItem="u2c-ox-bXV" secondAttribute="bottom" id="MwB-4s-1oy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sKo-ru-6w8" secondAttribute="trailing" id="pmI-ii-lgg"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="webView" destination="sKo-ru-6w8" id="B2d-O3-Tcj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DzM-VK-02s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1873.5" y="398.5"/>
         </scene>
     </scenes>
 </document>
