@@ -28,4 +28,5 @@ class AddCurrencyTableViewDataSource: NSObject, UITableViewDataSource {
         return cell
 
     }
+    
 }

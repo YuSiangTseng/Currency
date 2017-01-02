@@ -17,6 +17,12 @@ class CurrencyViewController: UITableViewController {
     }
     var currencyDataSource: CurrencyTableViewDataSource?
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        navigationItem.leftBarButtonItem = editButtonItem()
+    }
+    
     //MARK:- view life cycle
     
     override func viewDidLoad() {
@@ -59,6 +65,5 @@ class CurrencyViewController: UITableViewController {
         tableView.dataSource = currencyDataSource
         tableView.reloadData()
     }
-
     
 }

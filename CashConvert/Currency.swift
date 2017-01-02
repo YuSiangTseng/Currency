@@ -6,7 +6,7 @@
 //  Copyright © 2016 Tseng Yu Siang. All rights reserved.
 //
 
-struct Currency {
+struct Currency: Equatable {
     let name: String
     let valueToBase: Double
     
@@ -14,4 +14,8 @@ struct Currency {
         self.name = name
         self.valueToBase = valueToBase
     }
+}
+
+func == (lhs: Currency, rhs: Currency) -> Bool {
+    return lhs.name == rhs.name
 }

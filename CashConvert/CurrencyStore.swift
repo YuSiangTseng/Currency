@@ -45,5 +45,19 @@ class CurrencyStore {
         }
     }
     
+    func removeCurrency(currency: Currency) {
+        if let index = displayCurrencies.indexOf(currency) {
+            displayCurrencies.removeAtIndex(index)
+        }
+        
+    }
+    
+    func moveCurrencyAtIndex(fromIndex: Int, toIndex: Int) {
+        guard fromIndex != toIndex else { return }
+        
+        let movedCurrency = displayCurrencies[fromIndex]
+        displayCurrencies.removeAtIndex(fromIndex)
+        displayCurrencies.insert(movedCurrency, atIndex: toIndex)
+    }
 }
 
