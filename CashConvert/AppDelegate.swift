@@ -17,17 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        
+        let navigationController = self.window?.rootViewController as? UINavigationController
+        let currencyViewController = navigationController?.topViewController as? CurrencyViewController
+        currencyViewController?.adManager = AdManager()
         
         CurrencyAPI().fetchCurrencies(baseCurrency: nil) {
             (currencyResult) -> Void in
             switch currencyResult {
             case let .Success(currency, currencies):
-                
-                let navigationController = self.window?.rootViewController as? UINavigationController
-                let currencyViewController = navigationController?.topViewController as? CurrencyViewController
                 currencyViewController?.currencyStore = CurrencyStore(baseCurrency: currency, allCurrencies: currencies)
-
             case let .Failure(error):
                 print("\(error)")
             }
