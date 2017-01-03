@@ -74,6 +74,8 @@ class CurrencyViewController: UITableViewController, GADBannerViewDelegate, GADI
     func setUpTableView(currencyStore: CurrencyStore) {
         refreshControl?.endRefreshing()
         currencyDataSource = CurrencyTableViewDataSource(currencyStore: currencyStore)
+        currencyDataSource?.presentAlertFrom = self
+        currencyDataSource?.textFieldDelegate = self
         tableView.dataSource = currencyDataSource
         tableView.reloadData()
         
