@@ -12,7 +12,6 @@ class CurrencyTableViewDataSource: NSObject, UITableViewDataSource {
     
     let currencyStore: CurrencyStore
     weak var presentAlertFrom: UIViewController?
-    weak var textFieldDelegate: UITextFieldDelegate?
     
     init(currencyStore: CurrencyStore) {
         self.currencyStore = currencyStore
@@ -23,14 +22,12 @@ class CurrencyTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("CurrencyItemCell") as! CurrencyItemCell
         let currency = currencyStore.displayCurrencies[indexPath.row]
         cell.currencyNameLabel.text = currency.name
         cell.flagImageView = nil
         cell.symbolImageView = nil
-        cell.inputTextField.text = "\(currency.valueToBase)"
-        cell.inputTextField.delegate = textFieldDelegate
+        cell.inputTextField.text = currencyStore.amountStringForCurrency(currency)
         
         return cell
     }

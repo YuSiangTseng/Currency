@@ -10,13 +10,13 @@
         <scene sceneID="Odd-Rr-ZIB">
             <objects>
                 <tableViewController id="cau-eB-5mE" customClass="CurrencyViewController" customModule="CashConvert" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gH6-B8-ggL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" id="gH6-B8-ggL">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyItemCell" rowHeight="86" id="qlg-tj-UfX" customClass="CurrencyItemCell" customModule="CashConvert" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="86"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qlg-tj-UfX" id="STO-bx-GeQ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="85.5"/>
@@ -53,6 +53,9 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                            <connections>
+                                                <action selector="textFieldInCellDataChanged:" destination="cau-eB-5mE" eventType="editingChanged" id="Bwg-BN-Col"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -72,7 +75,6 @@
                                     <outlet property="flagImageView" destination="6N1-xe-krM" id="xSH-0f-chN"/>
                                     <outlet property="inputTextField" destination="B1E-qZ-vIo" id="1ud-AO-uFj"/>
                                     <outlet property="symbolImageView" destination="edY-xc-VgD" id="JXP-Ay-Jtp"/>
-                                    <segue destination="3dm-Rz-2T7" kind="show" identifier="showWebPage" id="Nch-Jk-fdF"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -81,6 +83,7 @@
                             <outlet property="delegate" destination="cau-eB-5mE" id="g4z-T5-izq"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="1o0-C8-IpQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="eQi-fL-Xsk">
                             <connections>
@@ -88,13 +91,18 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="gW5-Pk-LjZ">
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
+                    <connections>
+                        <segue destination="3dm-Rz-2T7" kind="show" identifier="showWebPage" id="TDz-KX-G8J"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aiF-JR-Fkz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1403.5" y="89.5"/>
+            <point key="canvasLocation" x="1399.5" y="75.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Ie-5z-2db">

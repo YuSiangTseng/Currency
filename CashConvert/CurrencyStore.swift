@@ -11,6 +11,7 @@ class CurrencyStore {
     private (set) var baseCurrency: Currency
     private (set) var allCurrencies: [Currency]
     private (set) var displayCurrencies = [Currency]()
+    var currentBaseAmount: Double? = 1
     
     init(baseCurrency: Currency, allCurrencies: [Currency]) {
         self.baseCurrency = baseCurrency
@@ -35,8 +36,13 @@ class CurrencyStore {
             let newRate = ratesToPreviousBaseCurrency * currency.valueToBase
             return Currency(name: currency.name, valueToBase: newRate)
         }
+        displayCurrencies = displayCurrencies.map { (currency) -> Currency in
+            let newRate = ratesToPreviousBaseCurrency * currency.valueToBase
+            return Currency(name: currency.name, valueToBase: newRate)
+        }
         baseCurrency = Currency(name: currency.name, valueToBase: 1.0)
-    
+        currentBaseAmount = nil
+
     }
     
     func addCurrencyToDisplayCurrencies(currency: Currency) {
@@ -59,5 +65,15 @@ class CurrencyStore {
         displayCurrencies.removeAtIndex(fromIndex)
         displayCurrencies.insert(movedCurrency, atIndex: toIndex)
     }
+    
+    func amountStringForCurrency(currency: Currency) -> String {
+        if let amount = currentBaseAmount {
+            return "\(currency.valueToBase * amount)"
+        } else {
+            return ""
+        }
+        
+    }
+    
 }
 

@@ -31,7 +31,6 @@ class CurrencyViewController: UITableViewController, GADBannerViewDelegate, GADI
         super.viewDidLoad()
 
         refreshControl?.beginRefreshing()
-        tableView.rowHeight = 75
         showBannerAd()
     }
     
@@ -41,21 +40,17 @@ class CurrencyViewController: UITableViewController, GADBannerViewDelegate, GADI
         tableView.reloadData()
     }
     
+    //MARK:- Segues
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showWebPage" {
-            showWebPage(segue)
-        } else if segue.identifier == "addCurrency" {
+        if segue.identifier == "addCurrency" {
             showAddCurrency(segue)
             if adManager.interstitial.isReady {
                 adManager.interstitial.presentFromRootViewController(self)
             }
+        } else if segue.identifier == "showWebPage" {
+            showWebPage(segue)
         }
-    }
-    
-    func showBannerAd() {
-        navigationController?.setToolbarHidden(false, animated: true)
-        navigationController?.toolbar.addSubview(adManager.adBannerView)
-        adManager.loadBannerAd(self)
     }
     
     func showWebPage(segue: UIStoryboardSegue) {
@@ -71,27 +66,133 @@ class CurrencyViewController: UITableViewController, GADBannerViewDelegate, GADI
         addCurrencyViewController.currencyStore = currencyStore
     }
     
+    //MARK:- View Setup
+    
+    func showBannerAd() {
+        navigationController?.setToolbarHidden(false, animated: true)
+        navigationController?.toolbar.addSubview(adManager.adBannerView)
+        adManager.loadBannerAd(self)
+    }
+    
     func setUpTableView(currencyStore: CurrencyStore) {
+        tableView.rowHeight = 75
         refreshControl?.endRefreshing()
         currencyDataSource = CurrencyTableViewDataSource(currencyStore: currencyStore)
         currencyDataSource?.presentAlertFrom = self
-        currencyDataSource?.textFieldDelegate = self
         tableView.dataSource = currencyDataSource
         tableView.reloadData()
         
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        emptyTextField(textField)
+    func enableNavigationItems(enabled enabled: Bool) {
+        navigationItem.leftBarButtonItem?.enabled = enabled
+        navigationItem.rightBarButtonItem?.enabled = enabled
     }
     
-    func emptyTextField(textField: UITextField) {
-        for i in 0 ..< currencyStore!.displayCurrencies.count {
-            let indexPath = NSIndexPath(forRow: i, inSection: 0)
-            if let cellAtIndexPath = tableView.cellForRowAtIndexPath(indexPath) as? CurrencyItemCell {
-                cellAtIndexPath.inputTextField.text = ""
+    //MARK:- TextFieldDelegate
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        guard let indexPath = indexPathWithTextField(textField),
+            let newBaseCurrency = currencyStore?.displayCurrencies[indexPath.row] else {
+                return
+        }
+        
+        addCurrentBaseAmountToStoreWithTextField(textField)
+        emptyTextFields()
+        currencyStore?.changeBaseCurrency(newBaseCurrency)
+        enableNavigationItems(enabled: false)
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        enableNavigationItems(enabled: true)
+        addCurrentBaseAmountToStoreWithTextField(textField)
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField.text?.rangeOfString(".") != nil && string.rangeOfString(".") != nil {
+            return false
+        } else {
+            return true
+        }
+        
+    }
+    
+    @IBAction func textFieldInCellDataChanged(textField: UITextField) {
+        guard let currencyStore = self.currencyStore else {
+            return
+        }
+        addCurrentBaseAmountToStoreWithTextField(textField)
+        for i in 0 ..< currencyStore.displayCurrencies.count {
+            if i != indexPathWithTextField(textField)?.row {
+                if let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: i, inSection: 0)) as? CurrencyItemCell {
+                    let currency = currencyStore.displayCurrencies[i]
+                    cell.inputTextField.text = currencyStore.amountStringForCurrency(currency)
+                }
             }
         }
     }
+    
+    //MARK:- TableViewDelegate
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.frame.origin.x = 50.0
+        UIView.animateWithDuration(2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 20, options: .CurveEaseIn, animations: {
+            cell.frame.origin.x = 0.0
+        }, completion: nil)
+        
+        let currencyCell = cell as! CurrencyItemCell
+        currencyCell.inputTextField.delegate = self
+    }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if !isUserEditing() {
+            performSegueWithIdentifier("showWebPage", sender: nil)
+        } else {
+            view.endEditing(true)
+        }
+    }
+    
+    //MARK:- SrollviewDelegate
+    
+    override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        refreshControl = nil
+    }
+    
+    //MARK:- Utility
+    
+    func indexPathWithTextField(textField: UITextField) -> NSIndexPath? {
+        let pointInCell = textField.frame.origin
+        let pointInTableView = tableView.convertPoint(pointInCell, fromView: textField.superview)
+        return tableView.indexPathForRowAtPoint(pointInTableView)
+    }
+    
+    func emptyTextFields() {
+        for cell in tableView.visibleCells {
+            if let cell = cell as? CurrencyItemCell {
+                cell.inputTextField.text = ""
+            }
+        }
+    }
+    
+    func addCurrentBaseAmountToStoreWithTextField(textField: UITextField) {
+        if let currencyBaseTextField = textField.text {
+            currencyStore?.currentBaseAmount = Double(currencyBaseTextField)
+        }
+        
+    }
+    
+    func isUserEditing() -> Bool {
+        var editingField = false
+        for cell in tableView.visibleCells {
+            if let cell = cell as? CurrencyItemCell {
+                if cell.inputTextField.isFirstResponder() {
+                    editingField = true
+                    break
+                }
+            }
+        }
+        return editingField
+    }
+    
 }
