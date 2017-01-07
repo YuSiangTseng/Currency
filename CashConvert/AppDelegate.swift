@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = self.window?.rootViewController as? UINavigationController
         let currencyViewController = navigationController?.topViewController as? CurrencyViewController
         currencyViewController?.adManager = AdManager()
+        navigationController?.navigationBar.barStyle = .BlackTranslucent
+        window?.tintColor = UIColor.whiteColor()
         
         CurrencyAPI().fetchCurrencies(baseCurrency: nil) {
             (currencyResult) -> Void in

@@ -11,8 +11,13 @@ import UIKit
 class CurrencyItemCell: UITableViewCell {
     
     @IBOutlet var flagImageView: UIImageView!
-    @IBOutlet var symbolImageView: UIImageView!
     @IBOutlet var inputTextField: UITextField!
     @IBOutlet var currencyNameLabel: UILabel!
+    
+    override func awakeFromNib() {
+        inputTextField.layer.borderColor = UIColor.lightGrayColor().CGColor
+        inputTextField.layer.borderWidth = 1.0
+        inputTextField.tintColor = UIColor(red: 90/255, green: 202/255, blue: 250/255, alpha: 1)
+    }
     
 }

@@ -25,8 +25,7 @@ class CurrencyTableViewDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("CurrencyItemCell") as! CurrencyItemCell
         let currency = currencyStore.displayCurrencies[indexPath.row]
         cell.currencyNameLabel.text = currency.name
-        cell.flagImageView = nil
-        cell.symbolImageView = nil
+        cell.flagImageView.image = currency.flagImage
         cell.inputTextField.text = currencyStore.amountStringForCurrency(currency)
         
         return cell

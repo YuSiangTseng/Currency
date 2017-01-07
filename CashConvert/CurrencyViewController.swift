@@ -32,6 +32,7 @@ class CurrencyViewController: UITableViewController, GADBannerViewDelegate, GADI
 
         refreshControl?.beginRefreshing()
         showBannerAd()
+        title = "Currency"
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -75,7 +76,7 @@ class CurrencyViewController: UITableViewController, GADBannerViewDelegate, GADI
     }
     
     func setUpTableView(currencyStore: CurrencyStore) {
-        tableView.rowHeight = 75
+        tableView.rowHeight = 90
         refreshControl?.endRefreshing()
         currencyDataSource = CurrencyTableViewDataSource(currencyStore: currencyStore)
         currencyDataSource?.presentAlertFrom = self

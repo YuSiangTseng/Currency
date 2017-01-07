@@ -11,12 +11,13 @@ import UIKit
 class CurrencyNewsViewController: UIViewController, UIWebViewDelegate {
     
     var currency: Currency!
-    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .White)
     @IBOutlet var webView: UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.delegate = self
+        title = "News"
         currencyNews()
     }
     

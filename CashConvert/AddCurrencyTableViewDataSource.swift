@@ -23,8 +23,13 @@ class AddCurrencyTableViewDataSource: NSObject, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("AddCurrencyCell") as! AddCurrencyCell
         let currency = currencyStore.allCurrencies[indexPath.row]
-        cell.currencyNameLabel.text = currency.name
-        cell.flagImageView = nil
+        if let longName = currency.longName {
+            cell.currencyNameLabel.text = currency.name + " - " + longName
+        } else {
+            cell.currencyNameLabel.text = currency.name
+        }
+        cell.flagImageView.image = currency.flagImage
+        
         return cell
 
     }

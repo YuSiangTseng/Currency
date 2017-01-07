@@ -21,7 +21,8 @@ class AddCurrencyViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 75
+        tableView.rowHeight = 90
+        title = "Add Currency"
     }
     
     func setUpTableView(currencyStore: CurrencyStore) {

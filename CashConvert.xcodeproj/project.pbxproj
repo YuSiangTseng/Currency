@@ -22,6 +22,8 @@
 		3D2199B21E1AA9A400DB63E3 /* AddCurrencyTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2199B11E1AA9A400DB63E3 /* AddCurrencyTableViewDataSource.swift */; };
 		3D2199B41E1AADE300DB63E3 /* AddCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2199B31E1AADE300DB63E3 /* AddCurrencyCell.swift */; };
 		3D2199B71E1C328300DB63E3 /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2199B61E1C328300DB63E3 /* AdManager.swift */; };
+		3D845C281E2175700050B873 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D845C271E2175700050B873 /* CurrencyTextField.swift */; };
+		3D845C2A1E2182940050B873 /* CurrencyFullNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D845C291E2182940050B873 /* CurrencyFullNames.swift */; };
 		6CFB69DC2136DCC9B7195596 /* Pods_CashConvert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2E9092968864051B17D155 /* Pods_CashConvert.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,8 @@
 		3D2199B11E1AA9A400DB63E3 /* AddCurrencyTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCurrencyTableViewDataSource.swift; sourceTree = "<group>"; };
 		3D2199B31E1AADE300DB63E3 /* AddCurrencyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCurrencyCell.swift; sourceTree = "<group>"; };
 		3D2199B61E1C328300DB63E3 /* AdManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdManager.swift; sourceTree = "<group>"; };
+		3D845C271E2175700050B873 /* CurrencyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
+		3D845C291E2182940050B873 /* CurrencyFullNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyFullNames.swift; sourceTree = "<group>"; };
 		AA2E9092968864051B17D155 /* Pods_CashConvert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CashConvert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1687E30489F6C7F92D83070 /* Pods-CashConvert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CashConvert.release.xcconfig"; path = "Pods/Target Support Files/Pods-CashConvert/Pods-CashConvert.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +124,7 @@
 			children = (
 				3D2199A81E18341700DB63E3 /* CurrencyItemCell.swift */,
 				3D2199B31E1AADE300DB63E3 /* AddCurrencyCell.swift */,
+				3D845C271E2175700050B873 /* CurrencyTextField.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				3D2199B61E1C328300DB63E3 /* AdManager.swift */,
+				3D845C291E2182940050B873 /* CurrencyFullNames.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -280,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D845C281E2175700050B873 /* CurrencyTextField.swift in Sources */,
 				3D2199B21E1AA9A400DB63E3 /* AddCurrencyTableViewDataSource.swift in Sources */,
 				3D0E76C21E1585B6006D429A /* Currency.swift in Sources */,
 				3D2199A11E168DC800DB63E3 /* CurrencyAPI.swift in Sources */,
@@ -287,6 +294,7 @@
 				3D046E101E1567D80085A98D /* AppDelegate.swift in Sources */,
 				3D2199B41E1AADE300DB63E3 /* AddCurrencyCell.swift in Sources */,
 				3D2199B71E1C328300DB63E3 /* AdManager.swift in Sources */,
+				3D845C2A1E2182940050B873 /* CurrencyFullNames.swift in Sources */,
 				3D2199A41E18003E00DB63E3 /* CurrencyViewController.swift in Sources */,
 				3D2199AF1E1A9A7600DB63E3 /* CurrencyNewsViewController.swift in Sources */,
 				3D2199AB1E1A991300DB63E3 /* AddCurrencyViewController.swift in Sources */,
