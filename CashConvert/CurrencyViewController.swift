@@ -196,4 +196,19 @@ class CurrencyViewController: UITableViewController, GADBannerViewDelegate, GADI
         return editingField
     }
     
+    func showErrorMessage() {
+        //self.refreshControl?.endRefreshing()
+        let title = "Internet problem?"
+        let message = "Please press reload to try it again."
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let reloadAction = UIAlertAction(title: "Reload", style: .Default) { (action) -> Void in
+            //self.refreshControl?.beginRefreshing()
+            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "reloadData", object: self))
+        }
+        ac.addAction(reloadAction)
+        presentViewController(ac, animated: true, completion: {
+            ac.view.tintColor = UIColor(colorLiteralRed: 90/255, green: 202/255, blue: 250/255, alpha: 1)
+        })
+    }
+    
 }

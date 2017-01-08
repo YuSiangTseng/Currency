@@ -13,10 +13,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        loadData()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(loadData), name: "reloadData", object: nil)
         
+        return true
+    }
+    
+    func loadData() {
         let navigationController = self.window?.rootViewController as? UINavigationController
         let currencyViewController = navigationController?.topViewController as? CurrencyViewController
         currencyViewController?.adManager = AdManager()
@@ -29,13 +34,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case let .Success(currency, currencies):
                 currencyViewController?.currencyStore = CurrencyStore(baseCurrency: currency, allCurrencies: currencies)
             case let .Failure(error):
-                print("\(error)")
+                currencyViewController?.showErrorMessage()
             }
             
         }
         
-
-        return true
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -58,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
 
