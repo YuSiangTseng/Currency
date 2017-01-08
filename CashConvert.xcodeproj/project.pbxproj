@@ -199,6 +199,7 @@
 				TargetAttributes = {
 					3D046E0B1E1567D80085A98D = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = A7682PK9SF;
 					};
 				};
 			};
@@ -413,9 +414,10 @@
 			baseConfigurationReference = 0948769FDC8BE906BDEC20C0 /* Pods-CashConvert.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CashConvert/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YuSiang.CashConvert;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yusiang.cashconvert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -425,9 +427,10 @@
 			baseConfigurationReference = B1687E30489F6C7F92D83070 /* Pods-CashConvert.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CashConvert/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YuSiang.CashConvert;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yusiang.cashconvert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -20,8 +20,8 @@ class AdManager: NSObject, GADBannerViewDelegate, GADInterstitialDelegate {
     }()
     lazy var request: GADRequest = {
         let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-        
+        request.testDevices = [kGADSimulatorID, "9afe09c4a2fff4311e9153526ea37597"]
+
         return request
     }()
     

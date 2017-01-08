@@ -26,14 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let currencyViewController = navigationController?.topViewController as? CurrencyViewController
         currencyViewController?.adManager = AdManager()
         navigationController?.navigationBar.barStyle = .BlackTranslucent
-        window?.tintColor = UIColor.whiteColor()
+        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         CurrencyAPI().fetchCurrencies(baseCurrency: nil) {
             (currencyResult) -> Void in
             switch currencyResult {
             case let .Success(currency, currencies):
                 currencyViewController?.currencyStore = CurrencyStore(baseCurrency: currency, allCurrencies: currencies)
-            case let .Failure(error):
+            case .Failure(_):
                 currencyViewController?.showErrorMessage()
             }
             

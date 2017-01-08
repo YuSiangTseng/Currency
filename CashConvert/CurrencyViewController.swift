@@ -206,9 +206,7 @@ class CurrencyViewController: UITableViewController, GADBannerViewDelegate, GADI
             NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "reloadData", object: self))
         }
         ac.addAction(reloadAction)
-        presentViewController(ac, animated: true, completion: {
-            ac.view.tintColor = UIColor(colorLiteralRed: 90/255, green: 202/255, blue: 250/255, alpha: 1)
-        })
+        presentViewController(ac, animated: true, completion: nil)
     }
     
 }

@@ -41,7 +41,6 @@ class CurrencyTableViewDataSource: NSObject, UITableViewDataSource {
             let title = "Delete \(currency.name)"
             let message = "Say bye bye to this item ?"
             let ac = UIAlertController(title: title, message: message, preferredStyle: .ActionSheet)
-            
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
             ac.addAction(cancelAction)
             
