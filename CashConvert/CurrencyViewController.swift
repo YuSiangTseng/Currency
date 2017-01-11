@@ -198,7 +198,7 @@ class CurrencyViewController: UITableViewController, GADBannerViewDelegate, GADI
     
     func showErrorMessage() {
         //self.refreshControl?.endRefreshing()
-        let title = "Internet problem?"
+        let title = "Internet problem"
         let message = "Please press reload to try it again."
         let ac = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         let reloadAction = UIAlertAction(title: "Reload", style: .Default) { (action) -> Void in
